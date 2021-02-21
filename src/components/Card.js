@@ -13,7 +13,11 @@ function Cards({ pokemon }) {
                         <Card.Title  style={{ textAlign: "center" }}>{pokemon.name}</Card.Title>
                         <CardImg img src={pokemon.sprites.front_default} alt={pokemon.name} />
                         <ListGroup >    
-                        <ListGroupItem>Tipo : {pokemon.types[0].type.name}</ListGroupItem>
+                        {
+                            pokemon.types.map(type => {
+                                return(  
+                        <ListGroupItem>Tipo : {type.type.name}</ListGroupItem>
+                            )})}
                         <ListGroupItem>Número en la Pokedex: {pokemon.id}</ListGroupItem>
                         <ListGroupItem>Habilidad: {pokemon.abilities[0].ability.name}</ListGroupItem>
                         <Button variant="danger" onClick={() => setSmShow(true)}>Ver versión Shiny/Variocolor</Button>{' '}
